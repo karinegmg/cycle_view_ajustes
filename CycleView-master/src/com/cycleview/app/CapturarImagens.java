@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 
 import android.R.layout;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -33,30 +34,32 @@ public class CapturarImagens extends Activity{
 			}
 		}
 	}
+
 	public void capturarImagem(View v){
-		File diretorio = Environment.getExternalStoragePublicDirectory(
-				Environment.DIRECTORY_PICTURES);
-		String nomeImagem = diretorio.getPath() + "/" +System.currentTimeMillis()+".jpg";
+	//	File diretorio = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+		String nomeImagem = Constants.imageRoot.getPath() + "/" +System.currentTimeMillis()+".jpg";
 		uri = Uri.fromFile(new File(nomeImagem));
 
 		Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 		intent.putExtra(MediaStore.EXTRA_OUTPUT, uri);
 		startActivityForResult(intent, CAPTURAR_IMAGEM);
+
+	
 	}
+
 	public void visualizarImagem(View v){
 		Intent intent = new Intent(Intent.ACTION_VIEW);
 		intent.setDataAndType(uri, "image/jpeg");
 		startActivity(intent);
 	}
 
-	
 	private void mostrarMensagem(String msg){
 		Toast.makeText(this, msg,Toast.LENGTH_LONG).show();
 	}
+
 	private void adicionarNaGaleria() {
-		Intent intent = new Intent(
-		Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
+		Intent intent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
 		intent.setData(uri);
 		this.sendBroadcast(intent);
-		}
+	}
 }
