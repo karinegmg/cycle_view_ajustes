@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/background_light"
-    android:orientation="vertical">
+    android:orientation="vertical" >
 
     <ImageView
         android:id="@+id/iv_logo"
@@ -14,5 +14,6 @@
         android:layout_marginBottom="90dp"
         android:layout_marginTop="90dp"
         android:src="@drawable/logo_equipecycle_cinza" />
+
 
 </LinearLayout>

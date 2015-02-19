@@ -53,6 +53,6 @@ public class WifiScreen extends Activity {
 	}
 
 	protected void wifiReady() {
-		startActivity(new Intent(WifiScreen.this, CapturarImagens.class));
+		startActivity(new Intent(WifiScreen.this, CameraScreen.class));
 	}
 }

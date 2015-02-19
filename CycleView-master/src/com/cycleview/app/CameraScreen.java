@@ -61,6 +61,7 @@ public class CameraScreen extends Activity implements SurfaceHolder.Callback {
 	
 	public void showDanger() {
 		Log.v("CYCLEVIEW", "Danger!!");
+		
 	}
 	
 	// Initialize native code, build pipeline, etc

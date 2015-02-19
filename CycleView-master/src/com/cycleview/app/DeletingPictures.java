@@ -42,7 +42,7 @@ public class DeletingPictures extends ExifInterface{
 			cFile = Calendar.getInstance();
 			cFile.setTime(dateFile);
 			c.setTime(currentDate);
-			diff = (c.getTimeInMillis() - cFile.getTimeInMillis())/(24 * 60 * 60 * 1000);
+			diff = ((c.getTimeInMillis() - cFile.getTimeInMillis())/(24 * 60 * 60 * 1000));
 			
 			if ((int)diff >= Constants.expirationDate){
 				File f = new File(path);
